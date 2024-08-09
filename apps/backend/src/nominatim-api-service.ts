@@ -1,7 +1,4 @@
-import {
-  ApplicationSettings,
-  getNominatimAPIURL,
-} from "./application-settings";
+import { ApplicationSettings } from "./application-settings";
 
 type AddressParams = {
   amenity: string;
