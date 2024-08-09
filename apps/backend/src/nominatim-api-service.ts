@@ -16,7 +16,7 @@ type GeoPointCoordinates = {
 };
 
 class NominatimAPIService {
-  private baseUrl: string | undefined;
+  private baseUrl: string;
 
   constructor() {
     const applicationSettings = new ApplicationSettings();
