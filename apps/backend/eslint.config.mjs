@@ -10,9 +10,16 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: true,
+        project: ["./tsconfig.json"],
         tsconfigRootDir: import.meta.dirname,
       },
     },
     ignores: ["eslint.config.mjs", "webpack.config.js"],
+  },
+  {
+    rules: {
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "@typescript-eslint/no-misused-promises": ["error", "type"],
+    },
   },
 );
