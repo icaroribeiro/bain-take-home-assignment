@@ -3,10 +3,7 @@
   "display": "Node 20",
   "_version": "20.1.0",
   "compilerOptions": {
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "target": "ES2022",
-    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
     "outDir": "dist"
   },
   "include": ["src/**/*.ts", "test/**/*.ts"],
