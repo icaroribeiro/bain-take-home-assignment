@@ -1,18 +1,43 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
+import { AddressParams, NominatimAPIService } from "./nominatim-api-service";
+import { ApplicationSettings } from "./application-settings";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
-
 const app: Application = express();
+const applicationSettings = new ApplicationSettings();
 
-app.get("/", (req: Request, res: Response) => {
+app.post("/addresses/distance", async (_req: Request, res: Response) => {
+  const nominatimAPIService = new NominatimAPIService();
+  const addressParams: AddressParams = {
+    amenity: "",
+    street: "",
+    city: "",
+    county: "",
+    state: "",
+    country: "",
+    postalcode: "",
+  };
+  const coordinates =
+    await nominatimAPIService.getGeoPointCoordinates(addressParams);
+  console.log(coordinates);
   res.send({
     message: "hello world",
   });
 });
 
-app.listen(PORT, () => {
-  console.log("server started at http://localhost:" + PORT);
-});
+const start = (): void => {
+  try {
+    app.listen(applicationSettings.getPort(), () => {
+      console.log(
+        "server started at http://localhost:" + applicationSettings.getPort(),
+      );
+    });
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+};
+
+start();
