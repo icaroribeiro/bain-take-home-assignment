@@ -25,4 +25,4 @@ RUN npm install --only=production
 
 COPY --from=builder /app/dist ./
 
-CMD ["node", "./index.js"]
+CMD ["node", "--env-file .env", "./index.js"]
