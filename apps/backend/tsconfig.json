@@ -4,6 +4,7 @@
   "_version": "20.1.0",
   "compilerOptions": {
     "esModuleInterop": true,
+    "rootDir": "src",
     "outDir": "dist"
   },
   "include": ["src/**/*.ts", "test/**/*.ts"],
