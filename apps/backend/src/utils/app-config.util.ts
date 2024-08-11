@@ -1,6 +1,6 @@
 import { INTERNAL_SERVER_ERROR } from "http-status";
 
-import { AppError } from "../utils";
+import { AppError } from ".";
 
 const getEnvVar = (name: string): string => {
   if (!process.env[name]) {

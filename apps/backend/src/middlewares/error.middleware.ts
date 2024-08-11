@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { INTERNAL_SERVER_ERROR } from "http-status";
 
-import { AppError } from "../utils/app-error-util";
+import { AppError } from "../utils/app-error.util";
 
 const middleware = (
   error: AppError,

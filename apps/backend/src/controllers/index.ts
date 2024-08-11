@@ -1,1 +1,1 @@
-export * from "./address-controller";
+export * from "./address.controller";

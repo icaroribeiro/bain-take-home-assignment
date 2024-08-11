@@ -4,7 +4,7 @@ import { INTERNAL_SERVER_ERROR } from "http-status";
 
 import { Address } from "../schemas";
 import { AppError } from "../utils";
-import { getAddrGeoCoordinates } from "./nominatim-api-service";
+import { getAddrGeoCoordinates } from "./nominatim-api.service";
 
 const calculateAddrsDistance = async (
   srcAddress: Address,

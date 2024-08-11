@@ -1,8 +1,8 @@
 import { GeolibInputCoordinates } from "geolib/es/types";
 import { INTERNAL_SERVER_ERROR, OK } from "http-status";
 
-import { getNominatimAPIURL } from "../config";
 import { Address, SearchGeoJsonSchema } from "../schemas";
+import { getNominatimAPIURL } from "../utils";
 import { AppError } from "../utils";
 
 async function getAddrGeoCoordinates(

@@ -1,6 +1,6 @@
 import { object, string, TypeOf } from "zod";
 
-import { optional } from "../utils/schema-util";
+import { optional } from "../utils/schema.util";
 
 const AddressSchema = object({
   amenity: optional(string().optional()),
