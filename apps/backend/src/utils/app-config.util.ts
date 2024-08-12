@@ -18,4 +18,37 @@ const getNominatimAPIURL = (): string => {
   return getEnvVar("NOMINATIM_API_URL");
 };
 
-export { getNominatimAPIURL, getPort };
+const getPostgresDBDriver = (): string => {
+  return getEnvVar("POSTGRESDB_DRIVER");
+};
+
+const getPostgresDBUser = (): string => {
+  return getEnvVar("POSTGRESDB_USER");
+};
+
+const getPostgresDBPassword = (): string => {
+  return getEnvVar("POSTGRESDB_PASSWORD");
+};
+
+const getPostgresDBHost = (): string => {
+  return getEnvVar("POSTGRESDB_HOST");
+};
+
+const getPostgresDBPort = (): string => {
+  return getEnvVar("POSTGRESDB_PORT");
+};
+
+const getPostgresDBName = (): string => {
+  return getEnvVar("POSTGRESDB_NAME");
+};
+
+export {
+  getNominatimAPIURL,
+  getPort,
+  getPostgresDBDriver,
+  getPostgresDBHost,
+  getPostgresDBName,
+  getPostgresDBPassword,
+  getPostgresDBPort,
+  getPostgresDBUser,
+};
