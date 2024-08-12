@@ -5,9 +5,9 @@ import { Address, SearchGeoJsonSchema } from "../schemas";
 import { getNominatimAPIURL } from "../utils";
 import { AppError } from "../utils";
 
-async function getAddrGeoCoordinates(
+const getAddrGeoCoordinates = async (
   address: Address,
-): Promise<GeolibInputCoordinates> {
+): Promise<GeolibInputCoordinates> => {
   const baseUrl = getNominatimAPIURL();
   const urlQuery = createSearchURLQuery(address);
   const url = `${baseUrl}/search?${urlQuery}&format=geojson`;
@@ -32,7 +32,7 @@ async function getAddrGeoCoordinates(
     throw new AppError(INTERNAL_SERVER_ERROR, message);
   }
 
-  let jsonBody: any;
+  let jsonBody: unknown;
   try {
     jsonBody = JSON.parse(body);
   } catch (error) {
@@ -43,10 +43,10 @@ async function getAddrGeoCoordinates(
   }
 
   return parseGeoCoordinates(jsonBody);
-}
+};
 
-function createSearchURLQuery(address: Address): string {
-  let params: unknown;
+const createSearchURLQuery = (address: Address): string => {
+  let params: URLSearchParams;
   try {
     params = new URLSearchParams(address);
   } catch (error) {
@@ -56,11 +56,9 @@ function createSearchURLQuery(address: Address): string {
     throw new AppError(INTERNAL_SERVER_ERROR, message);
   }
   return params.toString();
-}
+};
 
-async function parseGeoCoordinates(
-  jsonBody: any,
-): Promise<GeolibInputCoordinates> {
+const parseGeoCoordinates = (jsonBody: unknown): GeolibInputCoordinates => {
   let geoCoordinates: GeolibInputCoordinates;
   try {
     const searchGeoJsonBody = SearchGeoJsonSchema.parse(jsonBody);
@@ -78,6 +76,6 @@ async function parseGeoCoordinates(
   }
 
   return geoCoordinates;
-}
+};
 
 export { getAddrGeoCoordinates };
