@@ -1,4 +1,4 @@
-# Stage 1: Build the backend app
+# Stage 1: Build the backend application image
 FROM node:latest as builder
 
 LABEL maintainer="Ícaro Ribeiro <icaroribeiro@hotmail.com>"
@@ -13,16 +13,12 @@ COPY . .
 
 RUN npm run build
 
-# Stage 2: Create the backend production image
+# Stage 2: Build the backend application image for production environment
 FROM node:slim as production
 
 WORKDIR /app
 
-COPY package*.json ./
-COPY .env ./
+COPY --from=builder /app/dist .
+COPY --from=builder /app/.env.prod .
 
-RUN npm install --only=production
-
-COPY --from=builder /app/dist ./
-
-CMD ["npm", "run", "start"]
+CMD ["node", "--env-file .env", "index.js"]
