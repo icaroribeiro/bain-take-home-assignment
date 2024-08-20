@@ -10,7 +10,7 @@
 			"name": "Dev",
 			"item": [
 				{
-					"name": "PostCalcAddressesDistance",
+					"name": "PostCalcDistanceBetweenAddresses",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -42,7 +42,7 @@
 					"response": []
 				},
 				{
-					"name": "GetAddressesDistanceCalcs",
+					"name": "GetDistancesBetweenAddressesHistory",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -81,7 +81,7 @@
 			"name": "Prod",
 			"item": [
 				{
-					"name": "PostCalcAddressesDistance",
+					"name": "PostCalcDistanceBetweenAddresses",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -113,7 +113,7 @@
 					"response": []
 				},
 				{
-					"name": "GetAddressesDistanceCalcs",
+					"name": "GetDistancesBetweenAddressesHistory",
 					"request": {
 						"method": "GET",
 						"header": [],
