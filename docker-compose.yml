@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  frontend:
+    container_name: frontend-container
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile.multi-stage
+    restart: on-failure
+    ports:
+      - "3000:80"
+
   backend:
     container_name: backend-container
     build:
