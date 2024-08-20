@@ -1,15 +1,23 @@
 {
+  "extends": "@tsconfig/node20/tsconfig.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 20",
   "_version": "20.1.0",
+
   "compilerOptions": {
-    "target": "ES2022",
+    "lib": ["es2023"],
     "module": "ESNext",
+    "target": "es2022",
     "moduleResolution": "Bundler",
+
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "rootDir": "src",
+    "strictPropertyInitialization": false,
+    "moduleDetection": "force",
+
+    "rootDir": ".",
+    "baseUrl": "src",
     "outDir": "dist"
   },
   "include": ["src/**/*.ts", "test/**/*.ts"],
