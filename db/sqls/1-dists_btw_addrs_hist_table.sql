@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS dists_btw_addrs_hist (
+    id uuid NOT NULL,
+    src_address_amenity text NOT NULL,
+    src_address_street text NOT NULL,
+    src_address_city text NOT NULL,
+    src_address_county text NOT NULL,
+    src_address_state text NOT NULL,
+    src_address_country text NOT NULL,
+    src_address_postalcode text NOT NULL,
+    dst_address_amenity text NOT NULL,
+    dst_address_street text NOT NULL,
+    dst_address_city text NOT NULL,
+    dst_address_county text NOT NULL,
+    dst_address_state text NOT NULL,
+    dst_address_country text NOT NULL,
+    dst_address_postalcode text NOT NULL,
+    distance numeric NOT NULL,
+    created_at timestamp with time zone NOT NULL,
+    updated_at timestamp with time zone,
+    CONSTRAINT dists_btw_addrs_hist_pkey PRIMARY KEY (id)
+);
