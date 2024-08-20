@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "b1dfba1c-4b2b-4fd6-96b4-79bd78c9a82b",
+		"name": "bain-take-home-assignment",
+		"description": "Bain Take Home Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "PostCalcAddressesDistance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"srcAddress\": {\r\n        \"amenity\": \"\",\r\n        \"street\": \"17, Strada Pictor Alexandru Romano\",\r\n        \"city\": \"\",\r\n        \"county\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"\",\r\n        \"postalcode\": \"\"\r\n    },\r\n    \"dstAddress\": {\r\n        \"amenity\": \"\",\r\n        \"street\": \"\",\r\n        \"city\": \"\",\r\n        \"county\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"Brazil\",\r\n        \"postalcode\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5001/addresses/calculate-distance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5001",
+							"path": [
+								"addresses",
+								"calculate-distance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressesDistanceCalcs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5001/addresses/distances/history?pageNumber=1&pageSize=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5001",
+							"path": [
+								"addresses",
+								"distances",
+								"history"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prod",
+			"item": [
+				{
+					"name": "PostCalcAddressesDistance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"srcAddresss\": {\r\n        \"amenity\": \"\",\r\n        \"street\": \"17, Strada Pictor Alexandru Romano\",\r\n        \"city\": \"\",\r\n        \"county\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"\",\r\n        \"postalcode\": \"\"\r\n    },\r\n    \"dstAddress\": {\r\n        \"amenity\": \"\",\r\n        \"street\": \"\",\r\n        \"city\": \"\",\r\n        \"county\": \"\",\r\n        \"state\": \"\",\r\n        \"country\": \"Brazil\",\r\n        \"postalcode\": \"\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/addresses/calculate-distance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"addresses",
+								"calculate-distance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressesDistanceCalcs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/addresses/distances/history?pageNumber=2&pageSize=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"addresses",
+								"distances",
+								"history"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
