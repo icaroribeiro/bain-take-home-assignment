@@ -1,0 +1,463 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"CalcDistanceBetweenAddressesResponse": {
+				"properties": {
+					"result": {
+						"properties": {
+							"distance": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"distance"
+						],
+						"type": "object"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"result",
+					"status"
+				],
+				"type": "object"
+			},
+			"FailResponse": {
+				"properties": {
+					"details": {},
+					"message": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message",
+					"status"
+				],
+				"type": "object"
+			},
+			"ErrorResponse": {
+				"properties": {
+					"details": {},
+					"message": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message",
+					"status"
+				],
+				"type": "object"
+			},
+			"ReturnType_typeofaddressSchema.parse_": {
+				"properties": {
+					"postalcode": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"county": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"street": {
+						"type": "string"
+					},
+					"amenity": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"description": "Obtain the return type of a function type"
+			},
+			"Address": {
+				"$ref": "#/components/schemas/ReturnType_typeofaddressSchema.parse_"
+			},
+			"CalcDistanceBetweenAddressesRequest": {
+				"properties": {
+					"dstAddress": {
+						"$ref": "#/components/schemas/Address"
+					},
+					"srcAddress": {
+						"$ref": "#/components/schemas/Address"
+					}
+				},
+				"required": [
+					"dstAddress",
+					"srcAddress"
+				],
+				"type": "object"
+			},
+			"DistsBtwAddrsHistEntity": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"created_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updated_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"src_address_amenity": {
+						"type": "string"
+					},
+					"src_address_street": {
+						"type": "string"
+					},
+					"src_address_city": {
+						"type": "string"
+					},
+					"src_address_county": {
+						"type": "string"
+					},
+					"src_address_state": {
+						"type": "string"
+					},
+					"src_address_country": {
+						"type": "string"
+					},
+					"src_address_postalcode": {
+						"type": "string"
+					},
+					"dst_address_amenity": {
+						"type": "string"
+					},
+					"dst_address_street": {
+						"type": "string"
+					},
+					"dst_address_city": {
+						"type": "string"
+					},
+					"dst_address_county": {
+						"type": "string"
+					},
+					"dst_address_state": {
+						"type": "string"
+					},
+					"dst_address_country": {
+						"type": "string"
+					},
+					"dst_address_postalcode": {
+						"type": "string"
+					},
+					"distance": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"id",
+					"created_at",
+					"updated_at",
+					"src_address_amenity",
+					"src_address_street",
+					"src_address_city",
+					"src_address_county",
+					"src_address_state",
+					"src_address_country",
+					"src_address_postalcode",
+					"dst_address_amenity",
+					"dst_address_street",
+					"dst_address_city",
+					"dst_address_county",
+					"dst_address_state",
+					"dst_address_country",
+					"dst_address_postalcode",
+					"distance"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PaginatedResult_DistsBtwAddrsHistEntity_": {
+				"properties": {
+					"next": {
+						"type": "string"
+					},
+					"previous": {
+						"type": "string"
+					},
+					"records": {
+						"items": {
+							"$ref": "#/components/schemas/DistsBtwAddrsHistEntity"
+						},
+						"type": "array"
+					},
+					"totalRecords": {
+						"type": "number",
+						"format": "double"
+					},
+					"totalPages": {
+						"type": "number",
+						"format": "double"
+					},
+					"pageSize": {
+						"type": "number",
+						"format": "double"
+					},
+					"pageNumber": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"records",
+					"totalRecords",
+					"totalPages",
+					"pageSize",
+					"pageNumber"
+				],
+				"type": "object"
+			},
+			"GetDistacesBetweenAddressesHistoryResponse_DistsBtwAddrsHistEntity_": {
+				"properties": {
+					"result": {
+						"$ref": "#/components/schemas/PaginatedResult_DistsBtwAddrsHistEntity_"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"result",
+					"status"
+				],
+				"type": "object"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "@apps/backend",
+		"version": "1.0.0",
+		"description": "Bain Take-Home Assignment Backend Application",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Ícaro Ribeiro"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/addresses/calculate-distance": {
+			"post": {
+				"operationId": "CalcDistanceBetweenAddresses",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CalcDistanceBetweenAddressesResponse"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"status": "success",
+											"result": {
+												"distance": 1
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Reqsuest",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/FailResponse"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"status": "fail",
+											"message": "Bad Request",
+											"details": ""
+										}
+									}
+								}
+							}
+						}
+					},
+					"422": {
+						"description": "Validation Failed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/FailResponse"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"status": "fail",
+											"message": "Validation failed",
+											"details": {
+												"reqBody": {
+													"message": "srcAddresss is an excess property and therefore is not allowed",
+													"value": {
+														"srcAddresss": {
+															"amenity": "",
+															"street": "17, Strada Pictor Alexandru Romano",
+															"city": "",
+															"county": "",
+															"state": "",
+															"country": "",
+															"postalcode": ""
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"status": "error",
+											"message": "Internal Server Error"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"address"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CalcDistanceBetweenAddressesRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/addresses/distances/history": {
+			"get": {
+				"operationId": "GetDistancesBetweenAddressesHistory",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetDistacesBetweenAddressesHistoryResponse_DistsBtwAddrsHistEntity_"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"status": "success",
+											"result": {
+												"pageNumber": 1,
+												"pageSize": 1,
+												"totalPages": 1,
+												"totalRecords": 1,
+												"records": [
+													{
+														"id": "a074e5db-a074-40cf-b889-30e1e07046a3",
+														"created_at": "2024-08-20T03:37:33.679Z",
+														"updated_at": "2024-08-20T03:37:33.679Z",
+														"src_address_amenity": "",
+														"src_address_street": "17, Strada Pictor Alexandru Romano",
+														"src_address_city": "",
+														"src_address_county": "",
+														"src_address_state": "",
+														"src_address_country": "",
+														"src_address_postalcode": "",
+														"dst_address_amenity": "",
+														"dst_address_street": "",
+														"dst_address_city": "",
+														"dst_address_county": "",
+														"dst_address_state": "",
+														"dst_address_country": "Brazil",
+														"dst_address_postalcode": "",
+														"distance": 10252539
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Retrieve the history of the distances between two addresses using pagination schema.\nSupply the page number and page size and receive the corresponding history details.",
+				"tags": [
+					"address"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "The number of the page. If nothing is provided, it will be set to 1.",
+						"in": "query",
+						"name": "pageNumber",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "The size of the page. nothing is provided, it will be set to 1.",
+						"in": "query",
+						"name": "pageSize",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:5000",
+			"description": "Production environment"
+		}
+	]
+}
