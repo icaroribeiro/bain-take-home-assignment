@@ -357,6 +357,7 @@
 						}
 					}
 				},
+				"description": "Calculatethe distances between two addresses.",
 				"tags": [
 					"address"
 				],

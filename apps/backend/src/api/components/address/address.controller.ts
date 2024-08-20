@@ -37,6 +37,9 @@ class AddressController extends Controller {
     super();
   }
 
+  /**
+   * Calculatethe distances between two addresses.
+   */
   @SuccessResponse("200", "OK")
   @Example<CalcDistanceBetweenAddressesResponse>({
     status: "success",
