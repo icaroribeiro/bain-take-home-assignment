@@ -21,4 +21,4 @@ WORKDIR /app
 COPY --from=builder /app/dist .
 COPY --from=builder /app/.env.prod .
 
-CMD ["node", "--env-file .env", "index.js"]
+CMD ["node", "--env-file", ".env.prod", "index.js"]
