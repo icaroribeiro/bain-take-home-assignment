@@ -1,4 +1,4 @@
-# Hi there! 👋
+# Hi there!
 
 Be very welcome to my solution to my resolution to Bain Take-Home Assignment.
 
