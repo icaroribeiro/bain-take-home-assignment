@@ -18,7 +18,7 @@ This project consists in a full-stack application composed by a frontend and a b
 
 ## How to run the project?
 
-All applications and database can be run **locally** using a [**Docker**](https://www.docker.com/) container with commands from a Makefile file.
+All applications and database can be run using a [**Docker**](https://www.docker.com/) container with commands from a Makefile file.
 
 ### Makefile file
 
