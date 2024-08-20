@@ -1,0 +1,42 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/**/*controller.ts"],
+  "spec": {
+    "outputDirectory": "docs/api",
+    "specVersion": 3,
+    "basePath": "",
+    "spec": {
+      "servers": [
+        {
+          "url": "http://localhost:5000",
+          "description": "Production environment"
+        }
+      ]
+    }
+  },
+  "swagger": {
+    "info": {
+      "description": "A REST API developed using Node.js/TypeScript and Postgres database",
+      "version": "1.0.0",
+      "title": "Bain Take-Home Assignment API",
+      "contact": {
+        "email": "icaroribeiro@hotmail.com"
+      }
+    },
+    "outputDirectory": "./dist",
+    "entryFile": "./src/index.ts",
+    "host": "localhost:5000",
+    "tags": [
+      {
+        "name": "Address",
+        "description": "Everything about addresses"
+      }
+    ],
+    "schemes": ["http"]
+  },
+  "routes": {
+    "routesDir": "src/api",
+    "iocModule": "src/utils"
+  }
+}
