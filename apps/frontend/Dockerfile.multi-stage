@@ -1,0 +1,27 @@
+# Stage 1: Build the frontend application image
+FROM node:latest as builder
+
+LABEL maintainer="Ícaro Ribeiro <icaroribeiro@hotmail.com>"
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# Stage 2: Build the frontend application image for production environment
+FROM nginx:1.27.1-alpine-slim  as production
+
+WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*
+
+COPY --from=builder /app/dist .
+COPY --from=builder /app/.env.prod .
+COPY --from=builder /app/nginx.conf /etc/nginx/nginx.conf
+
+CMD ["nginx", "-g", "daemon off;"]
