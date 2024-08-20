@@ -1,25 +1,38 @@
-import { app } from "./app";
-import { PostgresDataSource } from "./data-sources";
-import { getPort } from "./utils";
+import "reflect-metadata";
 
-const start = (): void => {
-  PostgresDataSource.initialize()
-    .then(() => {
-      const port = parseInt(getPort());
-      try {
-        app.listen(port, () => {
-          console.log("Server started successfully!");
-        });
-      } catch (error) {
-        const message = "An error occurred when starting the server";
-        console.log(message, error);
-        process.exit(1);
-      }
-    })
-    .catch((error) => {
-      const message = "An error occurred when initializing the data source";
-      console.log(message, error);
+import { Application } from "express";
+import { createServer, Server as HttpServer } from "http";
+import { container } from "tsyringe";
+import { DataSource } from "typeorm";
+
+import { Server } from "./api/server";
+import { getPort } from "./config/server";
+import { PostgresDataSource } from "./data-sources";
+import { connToDataSource } from "./ds-conn";
+
+const start = async (): Promise<void> => {
+  try {
+    let globalDataSource: DataSource | undefined = undefined;
+    if (!globalDataSource) {
+      globalDataSource = await connToDataSource(PostgresDataSource);
+      container.register("DataSource", { useValue: globalDataSource });
+    }
+
+    const app: Application = new Server().app;
+    const server: HttpServer = createServer(app);
+
+    const port = parseInt(getPort());
+    server.listen(port, () => {
+      console.log("Server has been started successfully!");
     });
+
+    server.on("close", () => {
+      console.log("Server closed successfully!");
+    });
+  } catch (err) {
+    const message = "An error occurred when starting the server";
+    console.error(message, err);
+  }
 };
 
-start();
+await start();
