@@ -1,1 +1,2 @@
-export * from "./location.service";
+export * from "./location";
+export * from "./pagination";
